@@ -178,3 +178,8 @@ void WindowsInterface::SetWindowsTitleButtonWidth(int64_t width) {
 }
 
 ```
+
+#### 参考的一些开源库
+
+- https://github.com/grassator/win32-window-custom-titlebar
+- https://github.com/leanflutter/window_manager
