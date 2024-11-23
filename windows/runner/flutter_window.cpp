@@ -1,4 +1,5 @@
 #include "flutter_window.h"
+#include "windows_interface.h"
 
 #include <optional>
 
@@ -24,6 +25,9 @@ bool FlutterWindow::OnCreate() {
   if (!flutter_controller_->engine() || !flutter_controller_->view()) {
     return false;
   }
+
+  WindowsInterface::RegisterPlugin(flutter_controller_->engine(), flutter_controller_->view()->GetNativeWindow());
+
   RegisterPlugins(flutter_controller_->engine());
   SetChildContent(flutter_controller_->view()->GetNativeWindow());
 
