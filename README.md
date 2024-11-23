@@ -8,7 +8,7 @@
 
 1. 接入 [window_manager](https://github.com/leanflutter/window_manager) 库, 隐藏标题栏, 并自定义标题栏
 
-```
+```dart
 // main.dart
 
 Future<void> main() async {
@@ -62,7 +62,7 @@ Widget buildAppBarDesktop(ColorScheme colorScheme) {
 
 2. 引入 WindowsInterface 插件
 
-```
+```cmake
 // windows/runner/CMakeLists.txt 中添加
 
 # add windows_interface
@@ -72,7 +72,7 @@ add_subdirectory("windows_interface")
 target_link_libraries(${BINARY_NAME} PRIVATE windows_interface)
 ```
 
-```
+```cpp
 // windows/runner/flutter_window.cpp 中添加
 
 #include "windows_interface.h"
@@ -86,7 +86,7 @@ bool FlutterWindow::OnCreate() {
 
 3. 具体 windows_interface 插件实现
 
-```
+```text
 // C++ 端处理 HTMAXBUTTON 相关事件
 windows/runner/windows_interface/*
 
@@ -101,7 +101,7 @@ lib/src/platform/windows/windows_interface.dart
 
 4. 接入新的标题栏
 
-```
+```dart
 // app.dart
 
 // 使用 FixWindowCaption 替代 WindowCaption
@@ -124,7 +124,7 @@ Widget buildAppBarDesktop(ColorScheme colorScheme) {
 
 #### 实现细节
 
-```
+```cpp
 // 接管了 Flutter 侧的 Client 区域的 HWND 的 WndProc 事件
 // 让其在右上角三个 Button 处返回其该有的 HTMAXBUTTON、HTMINBUTTON、HTCLOSE
 case WM_NCHITTEST:
